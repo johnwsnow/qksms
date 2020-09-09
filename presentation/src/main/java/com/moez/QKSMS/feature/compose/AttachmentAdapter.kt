@@ -22,8 +22,11 @@ import android.content.Context
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.moez.QKSMS.common.base.QkAdapter
 import com.moez.QKSMS.common.base.QkViewHolder
+import com.moez.QKSMS.common.util.extensions.setVisible
 import com.moez.QKSMS.databinding.AttachmentContactListItemBinding
 import com.moez.QKSMS.databinding.AttachmentImageListItemBinding
 import com.moez.QKSMS.extensions.mapNotNull
@@ -53,10 +56,11 @@ class AttachmentAdapter @Inject constructor(
             VIEW_TYPE_CONTACT -> QkViewHolder(parent, AttachmentContactListItemBinding::inflate)
             else -> null!! // Impossible
         }
-
+        holder.binding.root.setVisible(true);
         return holder.apply {
             if (binding is AttachmentImageListItemBinding) {
                 binding.thumbnailBounds.clipToOutline = true
+                binding.thumbnail.setVisible(true)
             }
 
             binding.root.setOnClickListener {
@@ -73,6 +77,8 @@ class AttachmentAdapter @Inject constructor(
             attachment is Attachment.Image && holder.binding is AttachmentImageListItemBinding -> {
                 Glide.with(context)
                         .load(attachment.getUri())
+                        .apply(RequestOptions.skipMemoryCacheOf(true))
+                        .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
                         .into(holder.binding.thumbnail)
             }
 

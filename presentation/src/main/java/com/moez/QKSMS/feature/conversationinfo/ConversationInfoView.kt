@@ -34,6 +34,7 @@ interface ConversationInfoView : QkViewContract<ConversationInfoState> {
     fun deleteClicks(): Observable<*>
     fun confirmDelete(): Observable<*>
     fun mediaClicks(): Observable<Long>
+    fun mediaLongClicks(): Observable<Long>
 
     fun showNameDialog(name: String)
     fun showThemePicker(recipientId: Long)

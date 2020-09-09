@@ -106,6 +106,7 @@ class ConversationInfoController(
     override fun deleteClicks(): Observable<*> = adapter.deleteClicks
     override fun confirmDelete(): Observable<*> = confirmDeleteSubject
     override fun mediaClicks(): Observable<Long> = adapter.mediaClicks
+    override fun mediaLongClicks(): Observable<Long> = adapter.mediaLongClicks
 
     override fun showNameDialog(name: String) = nameDialog.setText(name).show()
 

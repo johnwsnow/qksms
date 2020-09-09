@@ -31,7 +31,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 2213
-        versionName "3.8.1"
+        versionName "3.8.1.jws"
         setProperty("archivesBaseName", "QKSMS-v${versionName}")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

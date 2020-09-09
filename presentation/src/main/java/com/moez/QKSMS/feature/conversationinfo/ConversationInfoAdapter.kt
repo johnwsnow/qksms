@@ -35,6 +35,7 @@ class ConversationInfoAdapter @Inject constructor(
     val blockClicks: Subject<Unit> = PublishSubject.create()
     val deleteClicks: Subject<Unit> = PublishSubject.create()
     val mediaClicks: Subject<Long> = PublishSubject.create()
+    val mediaLongClicks: Subject<Long> = PublishSubject.create()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QkViewHolder<ViewBinding> {
         val holder: QkViewHolder<ViewBinding> = when (viewType) {
@@ -77,6 +78,12 @@ class ConversationInfoAdapter @Inject constructor(
                         val item = getItem(adapterPosition) as? ConversationInfoMedia
                         item?.value?.id?.run(mediaClicks::onNext)
                     }
+                    itemView.setOnLongClickListener {
+                        val item = getItem(adapterPosition) as? ConversationInfoRecipient
+                        item?.value?.id?.run(mediaLongClicks::onNext)
+                        true
+                    }
+
                 }
             }
         }

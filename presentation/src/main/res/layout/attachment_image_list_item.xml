@@ -25,8 +25,8 @@
 
     <FrameLayout
         android:id="@+id/thumbnailBounds"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -34,9 +34,10 @@
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
             tools:src="@tools:sample/avatars" />
 
     </FrameLayout>

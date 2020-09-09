@@ -19,6 +19,9 @@
 package com.moez.QKSMS.feature.compose.part
 
 import android.content.Context
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.signature.ObjectKey
 import com.moez.QKSMS.common.base.QkViewHolder
 import com.moez.QKSMS.common.util.Colors
 import com.moez.QKSMS.common.util.extensions.setVisible
@@ -57,7 +60,12 @@ class MediaBinder @Inject constructor(
             else -> BubbleImageView.Style.ONLY
         }
 
-        GlideApp.with(context).load(part.getUri()).fitCenter().into(holder.binding.thumbnail)
+        GlideApp.with(context)
+                .load(part.getUri())
+                .fitCenter()
+                .apply(RequestOptions.skipMemoryCacheOf(true))
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .into(holder.binding.thumbnail)
     }
 
 }

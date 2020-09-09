@@ -219,17 +219,22 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/attachments"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="horizontal"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
+        android:scrollbars="horizontal"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constrainedHeight="false"
+        app:layout_constrainedWidth="false"
         app:layout_constraintBottom_toTopOf="@id/message"
-        app:layout_constraintEnd_toEndOf="@id/messageBackground"
-        app:layout_constraintStart_toStartOf="@id/messageBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/attachment_image_list_item" />
 
     <com.moez.QKSMS.common.widget.QkEditText

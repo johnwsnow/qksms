@@ -30,7 +30,7 @@
         android:adjustViewBounds="true"
         android:background="@drawable/rounded_rectangle_4dp"
         android:backgroundTint="?android:attr/divider"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         tools:src="@tools:sample/backgrounds/scenic" />
 
 </FrameLayout>
