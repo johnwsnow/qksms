@@ -188,18 +188,6 @@ class ConversationInfoPresenter @Inject constructor(
         view.mediaClicks()
                 .autoDisposable(view.scope())
                 .subscribe(navigator::showMedia)
-
-        view.mediaLongClicks()
-
-                .mapNotNull(messageRepo::getRecipient)
-                .map { recipient -> messageRepo }
-                .autoDisposable(view.scope())
-                .subscribe{ address ->
-                    ClipboardUtils.copy(context, address)
-                    context.makeToast(R.string.info_copied_address)
-                }
-
-
     }
 
 }
