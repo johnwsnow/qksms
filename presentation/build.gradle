@@ -73,12 +73,10 @@ android {
         enabled = true
     }
 
-    if (System.getenv("CI") == "true") {
-        signingConfigs.release.storeFile = file("../keystore")
-        signingConfigs.release.storePassword = System.getenv("keystore_password")
-        signingConfigs.release.keyAlias = System.getenv("key_alias")
-        signingConfigs.release.keyPassword = System.getenv("key_password")
-    }
+        signingConfigs.release.storeFile = file("../../my-release-key.keystore")
+        signingConfigs.release.storePassword = "snowjn"
+        signingConfigs.release.keyAlias = "my-key-alias"
+        signingConfigs.release.keyPassword = "snowjn"
 }
 
 configurations {
