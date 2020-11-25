@@ -30,8 +30,7 @@ import com.moez.QKSMS.manager.PermissionManager
 import com.moez.QKSMS.repository.BackupRepository
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.autoDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.withLatestFrom
+import com.uber.autodispose.autoDispose
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.Subject
 import java.util.concurrent.TimeUnit
@@ -50,17 +49,17 @@ class BackupPresenter @Inject constructor(
     private val storagePermissionSubject: Subject<Boolean> = BehaviorSubject.createDefault(permissionManager.hasStorage())
 
     init {
-        disposables += backupRepo.getBackupProgress()
+        disposables.add( backupRepo.getBackupProgress()
                 .sample(16, TimeUnit.MILLISECONDS)
                 .distinctUntilChanged()
-                .subscribe { progress -> newState { copy(backupProgress = progress) } }
+                .subscribe { progress -> newState { copy(backupProgress = progress) } })
 
-        disposables += backupRepo.getRestoreProgress()
+        disposables.add(backupRepo.getRestoreProgress()
                 .sample(16, TimeUnit.MILLISECONDS)
                 .distinctUntilChanged()
-                .subscribe { progress -> newState { copy(restoreProgress = progress) } }
+                .subscribe { progress -> newState { copy(restoreProgress = progress) } })
 
-        disposables += storagePermissionSubject
+        disposables.add(storagePermissionSubject
                 .distinctUntilChanged()
                 .switchMap { backupRepo.getBackups() }
                 .doOnNext { backups -> newState { copy(backups = backups) } }
@@ -72,10 +71,10 @@ class BackupPresenter @Inject constructor(
                     }
                 }
                 .startWith(context.getString(R.string.backup_loading))
-                .subscribe { lastBackup -> newState { copy(lastBackup = lastBackup) } }
+                .subscribe { lastBackup -> newState { copy(lastBackup = lastBackup) } })
 
-        disposables += billingManager.upgradeStatus
-                .subscribe { upgraded -> newState { copy(upgraded = upgraded) } }
+        disposables.add( billingManager.upgradeStatus
+                .subscribe { upgraded -> newState { copy(upgraded = upgraded) } })
     }
 
     override fun bindIntents(view: BackupView) {
@@ -83,7 +82,7 @@ class BackupPresenter @Inject constructor(
 
         view.activityVisible()
                 .map { permissionManager.hasStorage() }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe(storagePermissionSubject)
 
         view.restoreClicks()
@@ -100,29 +99,29 @@ class BackupPresenter @Inject constructor(
                         else -> view.selectFile()
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
 
         view.restoreFileSelected()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { view.confirmRestore() }
 
         view.restoreConfirmed()
                 .withLatestFrom(view.restoreFileSelected()) { _, backup -> backup }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { backup -> RestoreBackupService.start(context, backup.path) }
 
         view.stopRestoreClicks()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { view.stopRestore() }
 
         view.stopRestoreConfirmed()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { backupRepo.stopRestore() }
 
         view.fabClicks()
                 .withLatestFrom(billingManager.upgradeStatus) { _, upgraded -> upgraded }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { upgraded ->
                     when {
                         !upgraded -> navigator.showQksmsPlusActivity("backup_fab")

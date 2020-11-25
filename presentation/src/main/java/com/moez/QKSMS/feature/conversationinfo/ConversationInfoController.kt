@@ -34,7 +34,7 @@ import com.moez.QKSMS.feature.conversationinfo.injection.ConversationInfoModule
 import com.moez.QKSMS.feature.themepicker.ThemePickerController
 import com.moez.QKSMS.injection.appComponent
 import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
+import com.uber.autodispose.autoDispose
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
@@ -75,7 +75,7 @@ class ConversationInfoController(
         }
 
         themedActivity?.theme
-                ?.autoDisposable(scope())
+                ?.autoDispose(scope())
                 ?.subscribe { binding.recyclerView.scrapViews() }
     }
 

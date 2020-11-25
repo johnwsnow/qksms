@@ -32,9 +32,7 @@ import com.moez.QKSMS.repository.SyncRepository
 import com.moez.QKSMS.util.NightModeManager
 import com.moez.QKSMS.util.Preferences
 import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.withLatestFrom
+import com.uber.autodispose.autoDispose
 import timber.log.Timber
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -56,88 +54,88 @@ class SettingsPresenter @Inject constructor(
 )) {
 
     init {
-        disposables += colors.themeObservable()
-                .subscribe { theme -> newState { copy(theme = theme.theme) } }
+        disposables.add(colors.themeObservable()
+                .subscribe { theme -> newState { copy(theme = theme.theme) } })
 
         val nightModeLabels = context.resources.getStringArray(R.array.night_modes)
-        disposables += prefs.nightMode.asObservable()
+        disposables.add(prefs.nightMode.asObservable()
                 .subscribe { nightMode ->
                     newState { copy(nightModeSummary = nightModeLabels[nightMode], nightModeId = nightMode) }
-                }
+                })
 
-        disposables += prefs.nightStart.asObservable()
+        disposables.add(prefs.nightStart.asObservable()
                 .map { time -> nightModeManager.parseTime(time) }
                 .map { calendar -> calendar.timeInMillis }
                 .map { millis -> dateFormatter.getTimestamp(millis) }
-                .subscribe { nightStart -> newState { copy(nightStart = nightStart) } }
+                .subscribe { nightStart -> newState { copy(nightStart = nightStart) } })
 
-        disposables += prefs.nightEnd.asObservable()
+        disposables.add(prefs.nightEnd.asObservable()
                 .map { time -> nightModeManager.parseTime(time) }
                 .map { calendar -> calendar.timeInMillis }
                 .map { millis -> dateFormatter.getTimestamp(millis) }
-                .subscribe { nightEnd -> newState { copy(nightEnd = nightEnd) } }
+                .subscribe { nightEnd -> newState { copy(nightEnd = nightEnd) } })
 
-        disposables += prefs.black.asObservable()
-                .subscribe { black -> newState { copy(black = black) } }
+        disposables.add(prefs.black.asObservable()
+                .subscribe { black -> newState { copy(black = black) } })
 
-        disposables += prefs.notifications().asObservable()
-                .subscribe { enabled -> newState { copy(notificationsEnabled = enabled) } }
+        disposables.add(prefs.notifications().asObservable()
+                .subscribe { enabled -> newState { copy(notificationsEnabled = enabled) } })
 
-        disposables += prefs.autoEmoji.asObservable()
-                .subscribe { enabled -> newState { copy(autoEmojiEnabled = enabled) } }
+        disposables.add(prefs.autoEmoji.asObservable()
+                .subscribe { enabled -> newState { copy(autoEmojiEnabled = enabled) } })
 
         val delayedSendingLabels = context.resources.getStringArray(R.array.delayed_sending_labels)
-        disposables += prefs.sendDelay.asObservable()
-                .subscribe { id -> newState { copy(sendDelaySummary = delayedSendingLabels[id], sendDelayId = id) } }
+        disposables.add(prefs.sendDelay.asObservable()
+                .subscribe { id -> newState { copy(sendDelaySummary = delayedSendingLabels[id], sendDelayId = id) } })
 
-        disposables += prefs.delivery.asObservable()
-                .subscribe { enabled -> newState { copy(deliveryEnabled = enabled) } }
+        disposables.add(prefs.delivery.asObservable()
+                .subscribe { enabled -> newState { copy(deliveryEnabled = enabled) } })
 
-        disposables += prefs.signature.asObservable()
-                .subscribe { signature -> newState { copy(signature = signature) } }
+        disposables.add(prefs.signature.asObservable()
+                .subscribe { signature -> newState { copy(signature = signature) } })
 
         val textSizeLabels = context.resources.getStringArray(R.array.text_sizes)
-        disposables += prefs.textSize.asObservable()
+        disposables.add(prefs.textSize.asObservable()
                 .subscribe { textSize ->
                     newState { copy(textSizeSummary = textSizeLabels[textSize], textSizeId = textSize) }
-                }
+                })
 
-        disposables += prefs.autoColor.asObservable()
-                .subscribe { autoColor -> newState { copy(autoColor = autoColor) } }
+        disposables.add(prefs.autoColor.asObservable()
+                .subscribe { autoColor -> newState { copy(autoColor = autoColor) } })
 
-        disposables += prefs.systemFont.asObservable()
-                .subscribe { enabled -> newState { copy(systemFontEnabled = enabled) } }
+        disposables.add(prefs.systemFont.asObservable()
+                .subscribe { enabled -> newState { copy(systemFontEnabled = enabled) } })
 
-        disposables += prefs.unicode.asObservable()
-                .subscribe { enabled -> newState { copy(stripUnicodeEnabled = enabled) } }
+        disposables.add(prefs.unicode.asObservable()
+                .subscribe { enabled -> newState { copy(stripUnicodeEnabled = enabled) } })
 
-        disposables += prefs.mobileOnly.asObservable()
-                .subscribe { enabled -> newState { copy(mobileOnly = enabled) } }
+        disposables.add(prefs.mobileOnly.asObservable()
+                .subscribe { enabled -> newState { copy(mobileOnly = enabled) } })
 
-        disposables += prefs.longAsMms.asObservable()
-                .subscribe { enabled -> newState { copy(longAsMms = enabled) } }
+        disposables.add(prefs.longAsMms.asObservable()
+                .subscribe { enabled -> newState { copy(longAsMms = enabled) } })
 
         val mmsSizeLabels = context.resources.getStringArray(R.array.mms_sizes)
         val mmsSizeIds = context.resources.getIntArray(R.array.mms_sizes_ids)
-        disposables += prefs.mmsSize.asObservable()
+        disposables.add(prefs.mmsSize.asObservable()
                 .subscribe { maxMmsSize ->
                     val index = mmsSizeIds.indexOf(maxMmsSize)
                     newState { copy(maxMmsSizeSummary = mmsSizeLabels[index], maxMmsSizeId = maxMmsSize) }
-                }
+                })
 
-        disposables += syncRepo.syncProgress
+        disposables.add(syncRepo.syncProgress
                 .sample(16, TimeUnit.MILLISECONDS)
                 .distinctUntilChanged()
-                .subscribe { syncProgress -> newState { copy(syncProgress = syncProgress) } }
+                .subscribe { syncProgress -> newState { copy(syncProgress = syncProgress) } })
 
-        disposables += syncMessages
+//        disposables.add(syncMessages)
     }
 
     override fun bindIntents(view: SettingsView) {
         super.bindIntents(view)
 
         view.preferenceClicks()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe {
                     Timber.v("Preference click: ${context.resources.getResourceName(it.id)}")
 
@@ -196,7 +194,7 @@ class SettingsPresenter @Inject constructor(
         view.aboutLongClicks()
                 .map { !prefs.logging.get() }
                 .doOnNext { enabled -> prefs.logging.set(enabled) }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { enabled ->
                     context.makeToast(when (enabled) {
                         true -> R.string.settings_logging_enabled
@@ -212,23 +210,23 @@ class SettingsPresenter @Inject constructor(
                         nightModeManager.updateNightMode(mode)
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
 
         view.viewQksmsPlusClicks()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showQksmsPlusActivity("settings_night") }
 
         view.nightStartSelected()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { nightModeManager.setNightStart(it.first, it.second) }
 
         view.nightEndSelected()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { nightModeManager.setNightEnd(it.first, it.second) }
 
         view.textSizeSelected()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe(prefs.textSize::set)
 
         view.sendDelaySelected()
@@ -239,16 +237,16 @@ class SettingsPresenter @Inject constructor(
                         prefs.sendDelay.set(duration)
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
 
         view.signatureSet()
                 .doOnNext(prefs.signature::set)
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
 
         view.mmsSizeSelected()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe(prefs.mmsSize::set)
     }
 

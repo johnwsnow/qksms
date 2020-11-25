@@ -30,9 +30,8 @@ import com.moez.QKSMS.R
 import com.moez.QKSMS.common.util.Colors
 import com.moez.QKSMS.common.util.extensions.dpToPx
 import com.moez.QKSMS.util.Preferences
+import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.Observables
-import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
@@ -63,12 +62,12 @@ class ConversationItemTouchCallback @Inject constructor(
     private val iconLength = 24.dpToPx(context)
 
     init {
-        disposables += colors.themeObservable()
+        disposables.add(colors.themeObservable()
                 .doOnNext { theme -> backgroundPaint.color = theme.theme }
                 .subscribeOn(Schedulers.io())
-                .subscribe()
+                .subscribe())
 
-        disposables += Observables
+        disposables.add(Observable
                 .combineLatest(prefs.swipeRight.asObservable(), prefs.swipeLeft.asObservable(), colors.themeObservable()
                 ) { right, left, theme ->
                     rightAction = right
@@ -79,7 +78,7 @@ class ConversationItemTouchCallback @Inject constructor(
                             or (if (left == Preferences.SWIPE_ACTION_NONE) 0 else ItemTouchHelper.LEFT))
                 }
                 .subscribeOn(Schedulers.io())
-                .subscribe()
+                .subscribe())
     }
 
     override fun onMove(

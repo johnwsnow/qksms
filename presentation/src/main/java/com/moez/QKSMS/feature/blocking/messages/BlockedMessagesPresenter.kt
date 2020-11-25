@@ -26,7 +26,7 @@ import com.moez.QKSMS.interactor.DeleteConversations
 import com.moez.QKSMS.repository.ConversationRepository
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.autoDisposable
-import io.reactivex.rxkotlin.withLatestFrom
+import com.uber.autodispose.autoDispose
 import javax.inject.Inject
 
 class BlockedMessagesPresenter @Inject constructor(
@@ -42,7 +42,7 @@ class BlockedMessagesPresenter @Inject constructor(
         super.bindIntents(view)
 
         view.menuReadyIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { newState { copy() } }
 
         view.optionsItemIntent
@@ -58,22 +58,22 @@ class BlockedMessagesPresenter @Inject constructor(
                     }
 
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
 
         view.confirmDeleteIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { conversations ->
                     deleteConversations.execute(conversations)
                     view.clearSelection()
                 }
 
         view.conversationClicks
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { threadId -> navigator.showConversation(threadId) }
 
         view.selectionChanges
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { selection -> newState { copy(selected = selection.size) } }
 
         view.backClicked
@@ -83,7 +83,7 @@ class BlockedMessagesPresenter @Inject constructor(
                         else -> view.clearSelection()
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
     }
 

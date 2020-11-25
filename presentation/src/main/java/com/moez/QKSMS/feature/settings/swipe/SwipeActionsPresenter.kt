@@ -24,9 +24,7 @@ import com.moez.QKSMS.R
 import com.moez.QKSMS.common.base.QkPresenter
 import com.moez.QKSMS.util.Preferences
 import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.withLatestFrom
+import com.uber.autodispose.autoDispose
 import javax.inject.Inject
 
 class SwipeActionsPresenter @Inject constructor(
@@ -37,11 +35,11 @@ class SwipeActionsPresenter @Inject constructor(
     init {
         val actionLabels = context.resources.getStringArray(R.array.settings_swipe_actions)
 
-        disposables += prefs.swipeRight.asObservable()
-                .subscribe { action -> newState { copy(rightLabel = actionLabels[action], rightIcon = iconForAction(action)) } }
+        disposables.add(prefs.swipeRight.asObservable()
+                .subscribe { action -> newState { copy(rightLabel = actionLabels[action], rightIcon = iconForAction(action)) } })
 
-        disposables += prefs.swipeLeft.asObservable()
-                .subscribe { action -> newState { copy(leftLabel = actionLabels[action], leftIcon = iconForAction(action)) } }
+        disposables.add(prefs.swipeLeft.asObservable()
+                .subscribe { action -> newState { copy(leftLabel = actionLabels[action], leftIcon = iconForAction(action)) } })
     }
 
     override fun bindIntents(view: SwipeActionsView) {
@@ -54,7 +52,7 @@ class SwipeActionsPresenter @Inject constructor(
                         SwipeActionsView.Action.LEFT -> prefs.swipeLeft.get()
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe(view::showSwipeActions)
 
         view.actionSelected()
@@ -64,7 +62,7 @@ class SwipeActionsPresenter @Inject constructor(
                         SwipeActionsView.Action.LEFT -> prefs.swipeLeft.set(actionId)
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
     }
 

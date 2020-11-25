@@ -35,7 +35,6 @@ import com.moez.QKSMS.model.Conversation
 import com.moez.QKSMS.model.Recipient
 import com.moez.QKSMS.repository.ConversationRepository
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 import javax.inject.Inject
@@ -185,9 +184,9 @@ class ComposeItemAdapter @Inject constructor(
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        disposables += conversationRepo.getUnmanagedRecipients()
+        disposables.add(conversationRepo.getUnmanagedRecipients()
                 .map { recipients -> recipients.associateByNotNull { recipient -> recipient.contact?.lookupKey } }
-                .subscribe { recipients -> this@ComposeItemAdapter.recipients = recipients }
+                .subscribe { recipients -> this@ComposeItemAdapter.recipients = recipients })
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {

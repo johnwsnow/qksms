@@ -20,6 +20,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'realm-android' // Realm needs to be before Kotlin or the build will fail
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'org.owasp.dependencycheck'
 
 android {
     compileSdkVersion 29
@@ -73,12 +74,10 @@ android {
         enabled = true
     }
 
-    if (System.getenv("CI") == "true") {
-        signingConfigs.release.storeFile = file("../keystore")
-        signingConfigs.release.storePassword = System.getenv("keystore_password")
-        signingConfigs.release.keyAlias = System.getenv("key_alias")
-        signingConfigs.release.keyPassword = System.getenv("key_password")
-    }
+        signingConfigs.release.storeFile = file("../my-release-key.keystore")
+        signingConfigs.release.storePassword = "snowjn"
+        signingConfigs.release.keyAlias = "my-key-alias"
+        signingConfigs.release.keyPassword = "snowjn"
 }
 
 configurations {
@@ -146,9 +145,9 @@ dependencies {
     kapt "io.realm:realm-annotations-processor:$realm_version"
 
     // rxjava
-    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
-    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxandroid_version"
+    implementation "io.reactivex.rxjava3:rxjava:$rxjava_version"
+    implementation "io.reactivex.rxjava3:rxkotlin:$rxkotlin_version"
     implementation "com.uber.rxdogtag:rxdogtag:$rxdogtag_version"
     implementation "com.uber.rxdogtag:rxdogtag-autodispose:$rxdogtag_version"
 

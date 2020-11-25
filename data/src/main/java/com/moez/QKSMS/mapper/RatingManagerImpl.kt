@@ -21,12 +21,11 @@ package com.moez.QKSMS.mapper
 import com.f2prateek.rx.preferences2.RxSharedPreferences
 import com.moez.QKSMS.manager.AnalyticsManager
 import com.moez.QKSMS.manager.RatingManager
-import io.reactivex.rxkotlin.Observables
 import javax.inject.Inject
 
 class RatingManagerImpl @Inject constructor(
-    rxPrefs: RxSharedPreferences,
-    private val analyticsManager: AnalyticsManager
+        rxPrefs: RxSharedPreferences,
+        private val analyticsManager: AnalyticsManager
 ) : RatingManager {
 
     companion object {
@@ -37,7 +36,7 @@ class RatingManagerImpl @Inject constructor(
     private val rated = rxPrefs.getBoolean("rated", false)
     private val dismissed = rxPrefs.getBoolean("dismissed", false)
 
-    override val shouldShowRating = Observables.combineLatest(
+    override val shouldShowRating: io.reactivex.Observable<Boolean> = io.reactivex.Observable.combineLatest(
             sessions.asObservable(),
             rated.asObservable(),
             dismissed.asObservable()
