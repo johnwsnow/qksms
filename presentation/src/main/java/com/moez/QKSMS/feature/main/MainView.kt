@@ -21,7 +21,7 @@ package com.moez.QKSMS.feature.main
 import android.content.Intent
 import com.moez.QKSMS.common.base.QkView
 import com.moez.QKSMS.manager.ChangelogManager
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface MainView : QkView<MainState> {
 

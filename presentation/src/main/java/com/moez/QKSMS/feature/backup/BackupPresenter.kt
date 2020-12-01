@@ -28,12 +28,12 @@ import com.moez.QKSMS.common.util.extensions.makeToast
 import com.moez.QKSMS.interactor.PerformBackup
 import com.moez.QKSMS.manager.PermissionManager
 import com.moez.QKSMS.repository.BackupRepository
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.withLatestFrom
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.kotlin.withLatestFrom
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -83,7 +83,7 @@ class BackupPresenter @Inject constructor(
 
         view.activityVisible()
                 .map { permissionManager.hasStorage() }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe(storagePermissionSubject)
 
         view.restoreClicks()
@@ -100,29 +100,29 @@ class BackupPresenter @Inject constructor(
                         else -> view.selectFile()
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
 
         view.restoreFileSelected()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { view.confirmRestore() }
 
         view.restoreConfirmed()
                 .withLatestFrom(view.restoreFileSelected()) { _, backup -> backup }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { backup -> RestoreBackupService.start(context, backup.path) }
 
         view.stopRestoreClicks()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { view.stopRestore() }
 
         view.stopRestoreConfirmed()
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { backupRepo.stopRestore() }
 
         view.fabClicks()
                 .withLatestFrom(billingManager.upgradeStatus) { _, upgraded -> upgraded }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { upgraded ->
                     when {
                         !upgraded -> navigator.showQksmsPlusActivity("backup_fab")

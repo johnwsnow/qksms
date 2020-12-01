@@ -21,7 +21,7 @@ package com.moez.QKSMS.interactor
 import com.f2prateek.rx.preferences2.RxSharedPreferences
 import com.moez.QKSMS.util.NightModeManager
 import com.moez.QKSMS.util.Preferences
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
 /**

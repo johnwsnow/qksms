@@ -69,10 +69,9 @@ android {
         noAnalytics { dimension "analytics" }
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures{
+        viewBinding = true
     }
-
         signingConfigs.release.storeFile = file("../../my-release-key.keystore")
         signingConfigs.release.storePassword = "snowjn"
         signingConfigs.release.keyAlias = "my-key-alias"
@@ -114,15 +113,15 @@ dependencies {
     })
 
     // rxbinding
-    implementation "com.jakewharton.rxbinding2:rxbinding-kotlin:$rxbinding_version"
-    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:$rxbinding_version"
+    implementation "com.jakewharton.rxbinding4:rxbinding-core:$rxbinding_version"
+ //   implementation "com.jakewharton.rxbinding4:rxbinding-support-v4-kotlin:$rxbinding_version"
 
     // autodispose
-    implementation "com.uber.autodispose:autodispose-android-archcomponents:$autodispose_version"
-    implementation "com.uber.autodispose:autodispose-android-archcomponents-test:$autodispose_version"
-    implementation "com.uber.autodispose:autodispose-android:$autodispose_version"
-    implementation "com.uber.autodispose:autodispose:$autodispose_version"
-    implementation "com.uber.autodispose:autodispose-lifecycle:$autodispose_version"
+    implementation "com.uber.autodispose2:autodispose-androidx-lifecycle:$autodispose_version"
+    implementation "com.uber.autodispose2:autodispose-androidx-lifecycle-test:$autodispose_version"
+    implementation "com.uber.autodispose2:autodispose-android:$autodispose_version"
+    implementation "com.uber.autodispose2:autodispose:$autodispose_version"
+    implementation "com.uber.autodispose2:autodispose-lifecycle:$autodispose_version"
 
     // dagger
     implementation "com.google.dagger:dagger:$dagger_version"
@@ -144,9 +143,9 @@ dependencies {
     kapt "io.realm:realm-annotations-processor:$realm_version"
 
     // rxjava
-    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
-    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxandroid_version"
+    implementation "io.reactivex.rxjava3:rxjava:$rxjava_version"
+    implementation "io.reactivex.rxjava3:rxkotlin:$rxkotlin_version"
     implementation "com.uber.rxdogtag:rxdogtag:$rxdogtag_version"
     implementation "com.uber.rxdogtag:rxdogtag-autodispose:$rxdogtag_version"
 

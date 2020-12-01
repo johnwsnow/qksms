@@ -29,9 +29,9 @@ import com.moez.QKSMS.common.util.Colors
 import com.moez.QKSMS.common.util.extensions.resolveThemeColor
 import com.moez.QKSMS.common.util.extensions.setVisible
 import com.moez.QKSMS.databinding.MenuListItemBinding
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 data class MenuItem(val title: String, val actionId: Int)

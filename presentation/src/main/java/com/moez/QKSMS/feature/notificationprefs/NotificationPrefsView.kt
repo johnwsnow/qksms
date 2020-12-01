@@ -21,8 +21,8 @@ package com.moez.QKSMS.feature.notificationprefs
 import android.net.Uri
 import com.moez.QKSMS.common.base.QkView
 import com.moez.QKSMS.common.widget.PreferenceView
-import io.reactivex.Observable
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.Subject
 
 interface NotificationPrefsView : QkView<NotificationPrefsState> {
 

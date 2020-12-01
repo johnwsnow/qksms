@@ -24,9 +24,9 @@ import android.os.Build
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProviders
-import com.jakewharton.rxbinding2.view.clicks
-import com.jakewharton.rxbinding2.widget.editorActions
-import com.jakewharton.rxbinding2.widget.textChanges
+import com.jakewharton.rxbinding4.view.clicks
+import com.jakewharton.rxbinding4.widget.editorActions
+import com.jakewharton.rxbinding4.widget.textChanges
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.ViewModelFactory
 import com.moez.QKSMS.common.base.QkThemedActivity
@@ -43,9 +43,9 @@ import com.moez.QKSMS.feature.compose.editing.ComposeItemAdapter
 import com.moez.QKSMS.feature.compose.editing.PhoneNumberAction
 import com.moez.QKSMS.feature.compose.editing.PhoneNumberPickerAdapter
 import dagger.android.AndroidInjection
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class ContactsActivity : QkThemedActivity(), ContactsContract {

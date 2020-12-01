@@ -20,7 +20,7 @@ package com.moez.QKSMS.feature.settings.swipe
 
 import android.view.View
 import androidx.core.view.isVisible
-import com.jakewharton.rxbinding2.view.clicks
+import com.jakewharton.rxbinding4.view.clicks
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.QkDialog
 import com.moez.QKSMS.common.base.QkController
@@ -30,13 +30,13 @@ import com.moez.QKSMS.common.util.extensions.setBackgroundTint
 import com.moez.QKSMS.common.util.extensions.setTint
 import com.moez.QKSMS.databinding.SwipeActionsControllerBinding
 import com.moez.QKSMS.injection.appComponent
-import com.uber.autodispose.android.autoDisposable
-import com.uber.autodispose.android.lifecycle.autoDisposable
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import com.uber.autodispose2.android.autoDisposable
+import com.uber.autodispose2.android.lifecycle.autoDisposable
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class SwipeActionsController :
@@ -72,7 +72,7 @@ class SwipeActionsController :
         Observable.merge(
                 binding.right.clicks().map { SwipeActionsView.Action.RIGHT },
                 binding.left.clicks().map { SwipeActionsView.Action.LEFT })
-                .autoDisposable(scope())
+                .autoDispose(scope())
                 .subscribe(actionClicks)
     }
 

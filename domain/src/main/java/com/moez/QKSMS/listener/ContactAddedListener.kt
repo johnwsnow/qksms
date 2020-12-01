@@ -18,7 +18,7 @@
  */
 package com.moez.QKSMS.listener
 
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface ContactAddedListener {
 

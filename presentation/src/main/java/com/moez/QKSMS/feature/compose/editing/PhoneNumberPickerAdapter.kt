@@ -27,8 +27,8 @@ import com.moez.QKSMS.common.util.extensions.forwardTouches
 import com.moez.QKSMS.databinding.PhoneNumberListItemBinding
 import com.moez.QKSMS.extensions.Optional
 import com.moez.QKSMS.model.PhoneNumber
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class PhoneNumberPickerAdapter @Inject constructor(

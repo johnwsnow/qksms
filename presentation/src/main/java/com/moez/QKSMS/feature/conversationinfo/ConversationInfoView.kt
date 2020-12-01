@@ -19,7 +19,7 @@
 package com.moez.QKSMS.feature.conversationinfo
 
 import com.moez.QKSMS.common.base.QkViewContract
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface ConversationInfoView : QkViewContract<ConversationInfoState> {
 

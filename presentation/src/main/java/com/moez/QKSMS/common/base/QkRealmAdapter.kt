@@ -22,8 +22,8 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.moez.QKSMS.common.util.extensions.setVisible
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 import io.realm.OrderedRealmCollection
 import io.realm.RealmList
 import io.realm.RealmModel

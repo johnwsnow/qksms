@@ -19,7 +19,7 @@
 package com.moez.QKSMS.interactor
 
 import com.moez.QKSMS.repository.ScheduledMessageRepository
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
 class AddScheduledMessage @Inject constructor(

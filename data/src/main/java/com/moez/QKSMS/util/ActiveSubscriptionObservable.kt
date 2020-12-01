@@ -20,9 +20,9 @@ package com.moez.QKSMS.util
 
 import com.moez.QKSMS.compat.SubscriptionInfoCompat
 import com.moez.QKSMS.compat.SubscriptionManagerCompat
-import io.reactivex.Observable
-import io.reactivex.Observer
-import io.reactivex.disposables.Disposable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
 
 class ActiveSubscriptionObservable(
     private val subscriptionManager: SubscriptionManagerCompat

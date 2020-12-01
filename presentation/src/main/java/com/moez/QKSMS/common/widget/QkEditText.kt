@@ -33,8 +33,8 @@ import com.google.android.mms.ContentType
 import com.moez.QKSMS.common.util.TextViewStyler
 import com.moez.QKSMS.injection.appComponent
 import com.moez.QKSMS.util.tryOrNull
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 

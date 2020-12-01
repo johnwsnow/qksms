@@ -32,8 +32,8 @@ import com.moez.QKSMS.model.Recipient
 import com.moez.QKSMS.model.ScheduledMessage
 import com.moez.QKSMS.repository.ContactRepository
 import com.moez.QKSMS.util.PhoneNumberUtils
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class ScheduledMessageAdapter @Inject constructor(

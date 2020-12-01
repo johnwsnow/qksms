@@ -22,7 +22,7 @@ import android.net.Uri
 import com.moez.QKSMS.extensions.mapNotNull
 import com.moez.QKSMS.repository.ConversationRepository
 import com.moez.QKSMS.repository.SyncRepository
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
 class SyncMessage @Inject constructor(

@@ -23,8 +23,8 @@ import com.moez.QKSMS.common.base.QkRealmAdapter
 import com.moez.QKSMS.common.base.QkViewHolder
 import com.moez.QKSMS.databinding.BlockedNumberListItemBinding
 import com.moez.QKSMS.model.BlockedNumber
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 
 class BlockedNumbersAdapter : QkRealmAdapter<BlockedNumber, BlockedNumberListItemBinding>() {
 

@@ -30,11 +30,11 @@ import com.moez.QKSMS.extensions.mapNotNull
 import com.moez.QKSMS.model.Contact
 import com.moez.QKSMS.model.ContactGroup
 import com.moez.QKSMS.util.Preferences
-import io.reactivex.Flowable
-import io.reactivex.Observable
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import io.realm.Realm
 import io.realm.RealmResults
 import javax.inject.Inject

@@ -21,7 +21,7 @@ package com.moez.QKSMS.repository
 import com.moez.QKSMS.model.Conversation
 import com.moez.QKSMS.model.Recipient
 import com.moez.QKSMS.model.SearchResult
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import io.realm.RealmResults
 
 interface ConversationRepository {

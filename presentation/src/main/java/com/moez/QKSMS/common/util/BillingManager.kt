@@ -31,11 +31,11 @@ import com.android.billingclient.api.SkuDetails
 import com.android.billingclient.api.SkuDetailsParams
 import com.moez.QKSMS.BuildConfig
 import com.moez.QKSMS.manager.AnalyticsManager
-import io.reactivex.Flowable
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton

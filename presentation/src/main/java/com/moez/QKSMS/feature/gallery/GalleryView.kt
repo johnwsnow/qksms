@@ -20,7 +20,7 @@ package com.moez.QKSMS.feature.gallery
 
 import com.moez.QKSMS.common.base.QkView
 import com.moez.QKSMS.model.MmsPart
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface GalleryView : QkView<GalleryState> {
 

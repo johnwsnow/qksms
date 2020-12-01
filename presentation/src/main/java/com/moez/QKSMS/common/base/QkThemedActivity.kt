@@ -37,13 +37,13 @@ import com.moez.QKSMS.repository.ConversationRepository
 import com.moez.QKSMS.repository.MessageRepository
 import com.moez.QKSMS.util.PhoneNumberUtils
 import com.moez.QKSMS.util.Preferences
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.Observables
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.Observables
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -106,7 +106,7 @@ abstract class QkThemedActivity : QkActivity() {
         Observable.merge(triggers.map { it.asObservable().skip(1) })
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
-                .autoDisposable(scope())
+                .autoDispose(scope())
                 .subscribe { recreate() }
 
         // We can only set light nav bar on API 27 in attrs, but we can do it in API 26 here
@@ -145,7 +145,7 @@ abstract class QkThemedActivity : QkActivity() {
 
                 menuItem.icon = menuItem.icon?.apply { setTint(tint) }
             }
-        }.autoDisposable(scope(Lifecycle.Event.ON_DESTROY)).subscribe()
+        }.autoDispose(scope(Lifecycle.Event.ON_DESTROY)).subscribe()
     }
 
     open fun getColoredMenuItems(): List<Int> {

@@ -25,7 +25,7 @@ import android.provider.Settings
 import com.f2prateek.rx.preferences2.Preference
 import com.f2prateek.rx.preferences2.RxSharedPreferences
 import com.moez.QKSMS.common.util.extensions.versionCode
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
 

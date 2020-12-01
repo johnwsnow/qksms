@@ -6,7 +6,7 @@
 -dontwarn android.net.LinkProperties
 
 # autodispose
--dontwarn com.uber.autodispose.**
+-dontwarn com.uber.autodispose2.**
 
 # ez-vcard
 -dontwarn ezvcard.**

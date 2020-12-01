@@ -37,9 +37,9 @@ import com.moez.QKSMS.common.util.extensions.viewBinding
 import com.moez.QKSMS.databinding.GalleryActivityBinding
 import com.moez.QKSMS.model.MmsPart
 import dagger.android.AndroidInjection
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class GalleryActivity : QkActivity(), GalleryView {

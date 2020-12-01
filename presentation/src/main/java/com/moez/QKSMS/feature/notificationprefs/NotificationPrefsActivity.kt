@@ -27,7 +27,7 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.jakewharton.rxbinding2.view.clicks
+import com.jakewharton.rxbinding4.view.clicks
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.QkDialog
 import com.moez.QKSMS.common.base.QkThemedActivity
@@ -37,12 +37,12 @@ import com.moez.QKSMS.common.util.extensions.viewBinding
 import com.moez.QKSMS.common.widget.PreferenceView
 import com.moez.QKSMS.common.widget.QkSwitch
 import com.moez.QKSMS.databinding.NotificationPrefsActivityBinding
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
 import dagger.android.AndroidInjection
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class NotificationPrefsActivity : QkThemedActivity(), NotificationPrefsView {
@@ -88,7 +88,7 @@ class NotificationPrefsActivity : QkThemedActivity(), NotificationPrefsView {
                 .mapNotNull { view -> view as? PreferenceView }
                 .map { preference -> preference.clicks().map { preference } }
                 .let { Observable.merge(it) }
-                .autoDisposable(scope())
+                .autoDispose(scope())
                 .subscribe(preferenceClickIntent)
     }
 

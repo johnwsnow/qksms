@@ -40,8 +40,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.jakewharton.rxbinding2.view.clicks
-import com.jakewharton.rxbinding2.widget.textChanges
+import com.jakewharton.rxbinding4.view.clicks
+import com.jakewharton.rxbinding4.widget.textChanges
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.Navigator
 import com.moez.QKSMS.common.base.QkThemedActivity
@@ -60,12 +60,12 @@ import com.moez.QKSMS.feature.compose.editing.ChipsAdapter
 import com.moez.QKSMS.feature.contacts.ContactsActivity
 import com.moez.QKSMS.model.Attachment
 import com.moez.QKSMS.model.Recipient
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
 import dagger.android.AndroidInjection
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -152,7 +152,7 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
                 .doOnNext { binding.attach.setBackgroundTint(it.theme) }
                 .doOnNext { binding.attach.setTint(it.textPrimary) }
                 .doOnNext { messageAdapter.theme = it }
-                .autoDisposable(scope())
+                .autoDispose(scope())
                 .subscribe()
 
         window.callback = ComposeWindowCallback(window.callback, this)

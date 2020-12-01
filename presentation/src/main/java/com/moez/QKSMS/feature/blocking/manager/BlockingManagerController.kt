@@ -4,15 +4,15 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.view.View
 import androidx.core.view.isVisible
-import com.jakewharton.rxbinding2.view.clicks
+import com.jakewharton.rxbinding4.view.clicks
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.base.QkController
 import com.moez.QKSMS.databinding.BlockingManagerControllerBinding
 import com.moez.QKSMS.injection.appComponent
 import com.moez.QKSMS.util.Preferences
-import io.reactivex.Observable
-import io.reactivex.Single
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.subjects.PublishSubject
 import javax.inject.Inject
 
 class BlockingManagerController : QkController<BlockingManagerView, BlockingManagerState, BlockingManagerPresenter,

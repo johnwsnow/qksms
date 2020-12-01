@@ -20,7 +20,7 @@ package com.moez.QKSMS.feature.backup
 
 import com.moez.QKSMS.common.base.QkViewContract
 import com.moez.QKSMS.model.BackupFile
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface BackupView : QkViewContract<BackupState> {
 

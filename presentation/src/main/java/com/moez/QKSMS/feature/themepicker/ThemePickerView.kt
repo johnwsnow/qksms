@@ -19,7 +19,7 @@
 package com.moez.QKSMS.feature.themepicker
 
 import com.moez.QKSMS.common.base.QkViewContract
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface ThemePickerView : QkViewContract<ThemePickerState> {
 

@@ -20,7 +20,7 @@ package com.moez.QKSMS.feature.blocking
 
 import android.view.View
 import com.bluelinelabs.conductor.RouterTransaction
-import com.jakewharton.rxbinding2.view.clicks
+import com.jakewharton.rxbinding4.view.clicks
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.QkChangeHandler
 import com.moez.QKSMS.common.base.QkController

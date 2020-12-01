@@ -20,7 +20,7 @@ package com.moez.QKSMS.interactor
 
 import com.moez.QKSMS.manager.NotificationManager
 import com.moez.QKSMS.repository.ConversationRepository
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
 class DeleteConversations @Inject constructor(

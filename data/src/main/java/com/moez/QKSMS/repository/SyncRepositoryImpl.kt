@@ -42,8 +42,8 @@ import com.moez.QKSMS.model.Recipient
 import com.moez.QKSMS.model.SyncLog
 import com.moez.QKSMS.util.PhoneNumberUtils
 import com.moez.QKSMS.util.tryOrNull
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 import io.realm.Realm
 import io.realm.Sort
 import javax.inject.Inject

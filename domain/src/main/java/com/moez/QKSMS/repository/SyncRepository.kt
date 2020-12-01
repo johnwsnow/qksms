@@ -20,7 +20,7 @@ package com.moez.QKSMS.repository
 
 import android.net.Uri
 import com.moez.QKSMS.model.Message
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface SyncRepository {
 

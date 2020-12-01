@@ -39,8 +39,8 @@ import com.moez.QKSMS.extensions.isImage
 import com.moez.QKSMS.extensions.isVideo
 import com.moez.QKSMS.model.MmsPart
 import com.moez.QKSMS.util.GlideApp
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import java.util.*
 import javax.inject.Inject
 

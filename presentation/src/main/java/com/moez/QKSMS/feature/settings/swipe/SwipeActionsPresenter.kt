@@ -23,10 +23,10 @@ import androidx.annotation.DrawableRes
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.base.QkPresenter
 import com.moez.QKSMS.util.Preferences
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.withLatestFrom
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.kotlin.withLatestFrom
 import javax.inject.Inject
 
 class SwipeActionsPresenter @Inject constructor(
@@ -54,7 +54,7 @@ class SwipeActionsPresenter @Inject constructor(
                         SwipeActionsView.Action.LEFT -> prefs.swipeLeft.get()
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe(view::showSwipeActions)
 
         view.actionSelected()
@@ -64,7 +64,7 @@ class SwipeActionsPresenter @Inject constructor(
                         SwipeActionsView.Action.LEFT -> prefs.swipeLeft.set(actionId)
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
     }
 

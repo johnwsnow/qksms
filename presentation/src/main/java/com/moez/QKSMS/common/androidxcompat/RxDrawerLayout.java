@@ -21,10 +21,10 @@ package com.moez.QKSMS.common.androidxcompat;
 import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
-import com.jakewharton.rxbinding2.InitialValueObservable;
-import io.reactivex.functions.Consumer;
+import com.jakewharton.rxbinding4.InitialValueObservable;
+import io.reactivex.rxjava3.functions.Consumer;
 
-import static com.jakewharton.rxbinding2.internal.Preconditions.checkNotNull;
+import static com.jakewharton.rxbinding4.internal.Preconditions.checkNotNull;
 
 public final class RxDrawerLayout {
   /**

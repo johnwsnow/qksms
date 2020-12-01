@@ -24,8 +24,8 @@ import com.moez.QKSMS.compat.TelephonyCompat
 import com.moez.QKSMS.extensions.mapNotNull
 import com.moez.QKSMS.model.Attachment
 import com.moez.QKSMS.repository.ScheduledMessageRepository
-import io.reactivex.Flowable
-import io.reactivex.rxkotlin.toFlowable
+import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.kotlin.toFlowable
 import io.realm.RealmList
 import javax.inject.Inject
 

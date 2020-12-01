@@ -28,8 +28,8 @@ import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
-import com.jakewharton.rxbinding2.view.clicks
-import com.jakewharton.rxbinding2.widget.textChanges
+import com.jakewharton.rxbinding4.view.clicks
+import com.jakewharton.rxbinding4.widget.textChanges
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.base.QkThemedActivity
 import com.moez.QKSMS.common.util.extensions.autoScrollToStart
@@ -40,8 +40,8 @@ import com.moez.QKSMS.common.util.extensions.viewBinding
 import com.moez.QKSMS.databinding.QkreplyActivityBinding
 import com.moez.QKSMS.feature.compose.MessagesAdapter
 import dagger.android.AndroidInjection
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class QkReplyActivity : QkThemedActivity(), QkReplyView {

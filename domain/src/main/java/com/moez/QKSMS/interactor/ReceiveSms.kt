@@ -26,7 +26,7 @@ import com.moez.QKSMS.manager.ShortcutManager
 import com.moez.QKSMS.repository.ConversationRepository
 import com.moez.QKSMS.repository.MessageRepository
 import com.moez.QKSMS.util.Preferences
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import timber.log.Timber
 import javax.inject.Inject
 

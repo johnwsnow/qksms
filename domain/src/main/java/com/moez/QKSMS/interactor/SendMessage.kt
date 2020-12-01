@@ -24,7 +24,7 @@ import com.moez.QKSMS.extensions.mapNotNull
 import com.moez.QKSMS.model.Attachment
 import com.moez.QKSMS.repository.ConversationRepository
 import com.moez.QKSMS.repository.MessageRepository
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
 class SendMessage @Inject constructor(

@@ -27,12 +27,12 @@ import com.moez.QKSMS.common.base.QkViewModel
 import com.moez.QKSMS.extensions.mapNotNull
 import com.moez.QKSMS.repository.ConversationRepository
 import com.moez.QKSMS.util.Preferences
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.Flowable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.withLatestFrom
-import io.reactivex.schedulers.Schedulers
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.core.Flowable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.kotlin.withLatestFrom
+import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -102,7 +102,7 @@ class NotificationPrefsViewModel @Inject constructor(
         super.bindView(view)
 
         view.preferenceClickIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe {
                     when (it.id) {
                         R.id.notificationsO -> navigator.showNotificationChannel(threadId)
@@ -130,11 +130,11 @@ class NotificationPrefsViewModel @Inject constructor(
                 }
 
         view.previewModeSelectedIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { previews.set(it) }
 
         view.ringtoneSelectedIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { ringtone -> this.ringtone.set(ringtone) }
 
         view.actionsSelectedIntent
@@ -145,7 +145,7 @@ class NotificationPrefsViewModel @Inject constructor(
                         R.id.action3 -> prefs.notifAction3.set(action)
                     }
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
     }
 }

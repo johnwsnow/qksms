@@ -22,10 +22,10 @@ import com.moez.QKSMS.common.Navigator
 import com.moez.QKSMS.common.base.QkViewModel
 import com.moez.QKSMS.common.util.BillingManager
 import com.moez.QKSMS.manager.AnalyticsManager
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.Observable
-import io.reactivex.rxkotlin.plusAssign
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.kotlin.plusAssign
 import javax.inject.Inject
 
 class PlusViewModel @Inject constructor(
@@ -56,31 +56,31 @@ class PlusViewModel @Inject constructor(
                 view.upgradeIntent.map { BillingManager.SKU_PLUS },
                 view.upgradeDonateIntent.map { BillingManager.SKU_PLUS_DONATE })
                 .doOnNext { sku -> analyticsManager.track("Clicked Upgrade", Pair("sku", sku)) }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { sku -> view.initiatePurchaseFlow(billingManager, sku) }
 
         view.donateIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showDonation() }
 
         view.themeClicks
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showSettings() }
 
         view.scheduleClicks
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showScheduled() }
 
         view.backupClicks
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showBackup() }
 
         view.delayedClicks
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showSettings() }
 
         view.nightClicks
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showSettings() }
     }
 

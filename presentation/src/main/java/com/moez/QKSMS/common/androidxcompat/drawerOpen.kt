@@ -22,8 +22,8 @@ package com.moez.QKSMS.common.androidxcompat
 
 import androidx.annotation.CheckResult
 import androidx.drawerlayout.widget.DrawerLayout
-import com.jakewharton.rxbinding2.InitialValueObservable
-import io.reactivex.functions.Consumer
+import com.jakewharton.rxbinding4.InitialValueObservable
+import io.reactivex.rxjava3.functions.Consumer
 
 /**
  * Create an observable of the open state of the drawer of `view`.

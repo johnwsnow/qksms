@@ -20,7 +20,7 @@ package com.moez.QKSMS.interactor
 
 import com.moez.QKSMS.manager.ShortcutManager
 import com.moez.QKSMS.manager.WidgetManager
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
 class UpdateBadge @Inject constructor(

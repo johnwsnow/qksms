@@ -29,8 +29,8 @@ import com.moez.QKSMS.common.util.extensions.getLabel
 import com.moez.QKSMS.manager.NotificationManager
 import com.moez.QKSMS.repository.BackupRepository
 import dagger.android.AndroidInjection
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject

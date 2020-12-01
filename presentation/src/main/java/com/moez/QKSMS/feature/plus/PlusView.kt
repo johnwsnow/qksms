@@ -20,7 +20,7 @@ package com.moez.QKSMS.feature.plus
 
 import com.moez.QKSMS.common.base.QkView
 import com.moez.QKSMS.common.util.BillingManager
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface PlusView : QkView<PlusState> {
 

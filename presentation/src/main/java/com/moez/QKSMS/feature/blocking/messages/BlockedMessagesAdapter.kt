@@ -30,7 +30,7 @@ import com.moez.QKSMS.common.util.extensions.resolveThemeColor
 import com.moez.QKSMS.databinding.BlockedListItemBinding
 import com.moez.QKSMS.model.Conversation
 import com.moez.QKSMS.util.Preferences
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.PublishSubject
 import javax.inject.Inject
 
 class BlockedMessagesAdapter @Inject constructor(

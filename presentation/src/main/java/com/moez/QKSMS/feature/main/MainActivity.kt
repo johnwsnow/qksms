@@ -37,8 +37,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.google.android.material.snackbar.Snackbar
-import com.jakewharton.rxbinding2.view.clicks
-import com.jakewharton.rxbinding2.widget.textChanges
+import com.jakewharton.rxbinding4.view.clicks
+import com.jakewharton.rxbinding4.widget.textChanges
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.Navigator
 import com.moez.QKSMS.common.androidxcompat.drawerOpen
@@ -58,13 +58,13 @@ import com.moez.QKSMS.feature.conversations.ConversationItemTouchCallback
 import com.moez.QKSMS.feature.conversations.ConversationsAdapter
 import com.moez.QKSMS.manager.ChangelogManager
 import com.moez.QKSMS.repository.SyncRepository
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
 import dagger.android.AndroidInjection
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class MainActivity : QkThemedActivity(), MainView {
@@ -139,11 +139,11 @@ class MainActivity : QkThemedActivity(), MainView {
         conversationsAdapter.autoScrollToStart(binding.recyclerView)
 
         // Don't allow clicks to pass through the drawer layout
-        binding.drawer.root.clicks().autoDisposable(scope()).subscribe()
+        binding.drawer.root.clicks().autoDispose(scope()).subscribe()
 
         // Set the theme color tint to the recyclerView, progressbar, and FAB
         theme
-                .autoDisposable(scope())
+                .autoDispose(scope())
                 .subscribe { theme ->
                     // Set the color for the drawer icons
                     val states = arrayOf(

@@ -24,8 +24,8 @@ import com.moez.QKSMS.R
 import com.moez.QKSMS.databinding.ChangelogDialogBinding
 import com.moez.QKSMS.feature.main.MainActivity
 import com.moez.QKSMS.manager.ChangelogManager
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 
 class ChangelogDialog(activity: MainActivity) {
 

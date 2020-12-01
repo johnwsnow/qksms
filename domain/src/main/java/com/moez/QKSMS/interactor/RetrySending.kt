@@ -21,7 +21,7 @@ package com.moez.QKSMS.interactor
 import com.moez.QKSMS.extensions.mapNotNull
 import com.moez.QKSMS.model.Message
 import com.moez.QKSMS.repository.MessageRepository
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
 class RetrySending @Inject constructor(private val messageRepo: MessageRepository) : Interactor<Long>() {

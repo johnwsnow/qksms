@@ -18,7 +18,7 @@
  */
 package com.moez.QKSMS.extensions
 
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.*
 import io.realm.Realm
 import io.realm.RealmModel
 import io.realm.RealmObject

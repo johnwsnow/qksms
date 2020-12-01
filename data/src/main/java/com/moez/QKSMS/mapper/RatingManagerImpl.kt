@@ -21,7 +21,7 @@ package com.moez.QKSMS.mapper
 import com.f2prateek.rx.preferences2.RxSharedPreferences
 import com.moez.QKSMS.manager.AnalyticsManager
 import com.moez.QKSMS.manager.RatingManager
-import io.reactivex.rxkotlin.Observables
+import io.reactivex.rxjava3.kotlin.Observables
 import javax.inject.Inject
 
 class RatingManagerImpl @Inject constructor(

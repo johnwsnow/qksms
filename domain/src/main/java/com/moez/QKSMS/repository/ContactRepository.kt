@@ -21,8 +21,8 @@ package com.moez.QKSMS.repository
 import android.net.Uri
 import com.moez.QKSMS.model.Contact
 import com.moez.QKSMS.model.ContactGroup
-import io.reactivex.Observable
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
 import io.realm.RealmResults
 
 interface ContactRepository {

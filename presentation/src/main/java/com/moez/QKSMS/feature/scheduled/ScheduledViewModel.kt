@@ -28,10 +28,10 @@ import com.moez.QKSMS.common.util.extensions.makeToast
 import com.moez.QKSMS.interactor.SendScheduledMessage
 import com.moez.QKSMS.repository.MessageRepository
 import com.moez.QKSMS.repository.ScheduledMessageRepository
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.withLatestFrom
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.kotlin.withLatestFrom
 import javax.inject.Inject
 
 class ScheduledViewModel @Inject constructor(
@@ -54,7 +54,7 @@ class ScheduledViewModel @Inject constructor(
         super.bindView(view)
 
         view.messageClickIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { view.showMessageOptions() }
 
         view.messageMenuIntent
@@ -69,15 +69,15 @@ class ScheduledViewModel @Inject constructor(
                     }
                     Unit
                 }
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe()
 
         view.composeIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showCompose() }
 
         view.upgradeIntent
-                .autoDisposable(view.scope())
+                .autoDispose(view.scope())
                 .subscribe { navigator.showQksmsPlusActivity("schedule_fab") }
     }
 

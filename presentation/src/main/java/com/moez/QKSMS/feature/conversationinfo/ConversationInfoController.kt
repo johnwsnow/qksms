@@ -33,11 +33,11 @@ import com.moez.QKSMS.feature.blocking.BlockingDialog
 import com.moez.QKSMS.feature.conversationinfo.injection.ConversationInfoModule
 import com.moez.QKSMS.feature.themepicker.ThemePickerController
 import com.moez.QKSMS.injection.appComponent
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class ConversationInfoController(
@@ -75,7 +75,7 @@ class ConversationInfoController(
         }
 
         themedActivity?.theme
-                ?.autoDisposable(scope())
+                ?.autoDispose(scope())
                 ?.subscribe { binding.recyclerView.scrapViews() }
     }
 

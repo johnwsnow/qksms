@@ -32,11 +32,11 @@ import com.moez.QKSMS.databinding.AttachmentImageListItemBinding
 import com.moez.QKSMS.extensions.mapNotNull
 import com.moez.QKSMS.model.Attachment
 import ezvcard.Ezvcard
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class AttachmentAdapter @Inject constructor(

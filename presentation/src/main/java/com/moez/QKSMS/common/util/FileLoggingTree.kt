@@ -21,7 +21,7 @@ package com.moez.QKSMS.common.util
 import android.os.Environment
 import android.util.Log
 import com.moez.QKSMS.util.Preferences
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import timber.log.Timber
 import java.io.File
 import java.io.FileOutputStream

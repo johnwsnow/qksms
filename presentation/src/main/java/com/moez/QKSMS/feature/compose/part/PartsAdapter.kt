@@ -31,7 +31,7 @@ import com.moez.QKSMS.extensions.isText
 import com.moez.QKSMS.feature.compose.BubbleUtils.canGroup
 import com.moez.QKSMS.model.Message
 import com.moez.QKSMS.model.MmsPart
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
 class PartsAdapter @Inject constructor(

@@ -24,7 +24,7 @@ import com.moez.QKSMS.injection.scope.ActivityScope
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @Module
 class MainActivityModule {

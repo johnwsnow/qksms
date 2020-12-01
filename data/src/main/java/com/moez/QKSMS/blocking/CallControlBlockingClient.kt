@@ -27,8 +27,8 @@ import com.callcontrol.datashare.CallControl
 import com.moez.QKSMS.common.util.extensions.isInstalled
 import com.moez.QKSMS.extensions.map
 import com.moez.QKSMS.util.tryOrNull
-import io.reactivex.Completable
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
 class CallControlBlockingClient @Inject constructor(

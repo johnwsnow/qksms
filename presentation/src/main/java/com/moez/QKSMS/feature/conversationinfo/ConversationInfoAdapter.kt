@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.viewbinding.ViewBinding
-import com.jakewharton.rxbinding2.view.clicks
+import com.jakewharton.rxbinding4.view.clicks
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.base.QkAdapter
 import com.moez.QKSMS.common.base.QkViewHolder
@@ -17,8 +17,8 @@ import com.moez.QKSMS.databinding.ConversationRecipientListItemBinding
 import com.moez.QKSMS.extensions.isVideo
 import com.moez.QKSMS.feature.conversationinfo.ConversationInfoItem.*
 import com.moez.QKSMS.util.GlideApp
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class ConversationInfoAdapter @Inject constructor(

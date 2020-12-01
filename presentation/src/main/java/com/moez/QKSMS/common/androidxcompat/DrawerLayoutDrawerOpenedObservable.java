@@ -20,11 +20,11 @@ package com.moez.QKSMS.common.androidxcompat;
 
 import android.view.View;
 import androidx.drawerlayout.widget.DrawerLayout;
-import com.jakewharton.rxbinding2.InitialValueObservable;
-import io.reactivex.Observer;
-import io.reactivex.android.MainThreadDisposable;
+import com.jakewharton.rxbinding4.InitialValueObservable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.android.MainThreadDisposable;
 
-import static com.jakewharton.rxbinding2.internal.Preconditions.checkMainThread;
+import static com.jakewharton.rxbinding4.internal.Preconditions.checkMainThread;
 
 final class DrawerLayoutDrawerOpenedObservable extends InitialValueObservable<Boolean> {
   private final DrawerLayout view;

@@ -30,8 +30,8 @@ import com.moez.QKSMS.common.util.Colors
 import com.moez.QKSMS.databinding.BlockedMessagesControllerBinding
 import com.moez.QKSMS.feature.blocking.BlockingDialog
 import com.moez.QKSMS.injection.appComponent
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class BlockedMessagesController : QkController<BlockedMessagesView, BlockedMessagesState, BlockedMessagesPresenter,

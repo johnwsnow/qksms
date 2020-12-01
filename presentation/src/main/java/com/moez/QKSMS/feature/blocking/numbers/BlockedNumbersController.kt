@@ -20,7 +20,7 @@ package com.moez.QKSMS.feature.blocking.numbers
 
 import android.view.View
 import androidx.appcompat.app.AlertDialog
-import com.jakewharton.rxbinding2.view.clicks
+import com.jakewharton.rxbinding4.view.clicks
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.base.QkController
 import com.moez.QKSMS.common.util.Colors
@@ -30,9 +30,9 @@ import com.moez.QKSMS.databinding.BlockedNumbersAddDialogBinding
 import com.moez.QKSMS.databinding.BlockedNumbersControllerBinding
 import com.moez.QKSMS.injection.appComponent
 import com.moez.QKSMS.util.PhoneNumberUtils
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class BlockedNumbersController : QkController<BlockedNumbersView, BlockedNumbersState, BlockedNumbersPresenter,

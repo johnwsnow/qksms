@@ -20,7 +20,7 @@ package com.moez.QKSMS.feature.settings.about
 
 import com.moez.QKSMS.common.base.QkViewContract
 import com.moez.QKSMS.common.widget.PreferenceView
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 interface AboutView : QkViewContract<Unit> {
 

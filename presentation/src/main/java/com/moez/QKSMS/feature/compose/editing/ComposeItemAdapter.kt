@@ -34,10 +34,10 @@ import com.moez.QKSMS.model.ContactGroup
 import com.moez.QKSMS.model.Conversation
 import com.moez.QKSMS.model.Recipient
 import com.moez.QKSMS.repository.ConversationRepository
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class ComposeItemAdapter @Inject constructor(

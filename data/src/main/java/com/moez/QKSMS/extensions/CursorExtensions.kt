@@ -19,7 +19,7 @@
 package com.moez.QKSMS.extensions
 
 import android.database.Cursor
-import io.reactivex.Flowable
+import io.reactivex.rxjava3.core.Flowable
 
 fun Cursor.forEach(closeOnComplete: Boolean = true, method: (Cursor) -> Unit = {}) {
     moveToPosition(-1)

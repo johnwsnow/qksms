@@ -29,8 +29,8 @@ import com.moez.QKSMS.common.util.extensions.setTint
 import com.moez.QKSMS.common.util.extensions.viewBinding
 import com.moez.QKSMS.common.util.extensions.within
 import com.moez.QKSMS.databinding.HsvPickerViewBinding
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 
 class HSVPickerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null

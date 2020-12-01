@@ -27,8 +27,8 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.bluelinelabs.conductor.RouterTransaction
 import com.google.android.material.snackbar.Snackbar
-import com.jakewharton.rxbinding2.view.clicks
-import com.jakewharton.rxbinding2.view.longClicks
+import com.jakewharton.rxbinding4.view.clicks
+import com.jakewharton.rxbinding4.view.longClicks
 import com.moez.QKSMS.BuildConfig
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.MenuItem
@@ -49,11 +49,11 @@ import com.moez.QKSMS.feature.themepicker.ThemePickerController
 import com.moez.QKSMS.injection.appComponent
 import com.moez.QKSMS.repository.SyncRepository
 import com.moez.QKSMS.util.Preferences
-import com.uber.autodispose.android.lifecycle.scope
-import com.uber.autodispose.autoDisposable
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import com.uber.autodispose2.android.lifecycle.scope
+import com.uber.autodispose2.autoDisposable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class SettingsController : QkController<SettingsView, SettingsState, SettingsPresenter, SettingsControllerBinding>(
@@ -85,7 +85,7 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
         retainViewMode = RetainViewMode.RETAIN_DETACH
 
         colors.themeObservable()
-                .autoDisposable(scope())
+                .autoDispose(scope())
                 .subscribe { activity?.recreate() }
     }
 

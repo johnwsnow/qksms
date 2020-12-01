@@ -27,8 +27,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.widget.QkTextView
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.Subject
 
 abstract class QkActivity : AppCompatActivity() {
 

@@ -25,8 +25,8 @@ import com.moez.QKSMS.common.base.QkViewHolder
 import com.moez.QKSMS.common.util.Colors
 import com.moez.QKSMS.model.Message
 import com.moez.QKSMS.model.MmsPart
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 
 abstract class PartBinder<Binding : ViewBinding>(
     val bindingInflater: (LayoutInflater, ViewGroup, Boolean) -> Binding

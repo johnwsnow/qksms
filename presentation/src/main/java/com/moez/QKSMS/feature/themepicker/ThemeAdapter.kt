@@ -34,8 +34,8 @@ import com.moez.QKSMS.common.util.extensions.setTint
 import com.moez.QKSMS.common.util.extensions.setVisible
 import com.moez.QKSMS.databinding.ThemeListItemBinding
 import com.moez.QKSMS.databinding.ThemePaletteListItemBinding
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import javax.inject.Inject
 
 class ThemeAdapter @Inject constructor(

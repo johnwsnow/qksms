@@ -19,14 +19,14 @@
 package com.moez.QKSMS.feature.settings.about
 
 import android.view.View
-import com.jakewharton.rxbinding2.view.clicks
+import com.jakewharton.rxbinding4.view.clicks
 import com.moez.QKSMS.BuildConfig
 import com.moez.QKSMS.R
 import com.moez.QKSMS.common.base.QkController
 import com.moez.QKSMS.common.widget.PreferenceView
 import com.moez.QKSMS.databinding.AboutControllerBinding
 import com.moez.QKSMS.injection.appComponent
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
 class AboutController : QkController<AboutView, Unit, AboutPresenter, AboutControllerBinding>(
